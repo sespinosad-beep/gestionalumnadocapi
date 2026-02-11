@@ -1120,7 +1120,7 @@ function sendEmail(){
     const to=document.getElementById('emailTo').value;
     const s=encodeURIComponent(document.getElementById('emailSubject').value);
     const b=encodeURIComponent(document.getElementById('emailBody').value);
-    window.open(`mailto:${to}?subject=${s}&body=${b}`,'_blank');
+    window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${to}&su=${s}&body=${b}`,'_blank');
     closeModal('emailModal');showToast('📧 Abriendo correo...','info');
 }
 
