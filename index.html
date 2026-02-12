@@ -1254,6 +1254,32 @@ function generatePDF(cat){
 
         doc.setLineWidth(0.5);
         doc.line(15, 45, 195, 45);
+
+        // 🔽 AHORA VA TODO TU CÓDIGO ORIGINAL AQUÍ DENTRO
+
+        const cf=document.getElementById(`${cat}CourseFilter`).value;
+        let filtered=cf?students.filter(s=>s.course===cf):[...students];
+        filtered.sort((a,b)=>a.course.localeCompare(b.course)||a.name.localeCompare(b.name));
+
+        const negStatuses={
+            attendance:['absent'],
+            behavior:['bad','regular'],
+            writings:['not-delivered','late']
+        };
+
+        const incidences=[];
+        filtered.forEach(s=>{
+            const summary=getStudentWeekSummary(week,cat,s.id);
+            const negDays=summary.filter(d=>negStatuses[cat].includes(d.status));
+            if(negDays.length>0){
+                incidences.push({student:s, days:negDays});
+            }
+        });
+
+        // ⚠️ IMPORTANTÍSIMO
+        doc.save("informe.pdf");
+    };
+}
     const cf=document.getElementById(`${cat}CourseFilter`).value;
     let filtered=cf?students.filter(s=>s.course===cf):[...students];
     filtered.sort((a,b)=>a.course.localeCompare(b.course)||a.name.localeCompare(b.name));
