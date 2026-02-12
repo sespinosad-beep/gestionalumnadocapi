@@ -1224,18 +1224,25 @@ function addPdfFooter(doc){
 }
 
 function generatePDF(cat){
-    const week=getWeekKey(cat);if(!week){showToast('⚠️ Selecciona semana','error');return;}
-    const {jsPDF}=window.jspdf;const doc=new jsPDF();const img = new Image();
-    img.src = "capilogo.png"; //
+
+    const week = getWeekKey(cat);
+    if(!week){
+        showToast('⚠️ Selecciona semana','error');
+        return;
+    }
+
+    const { jsPDF } = window.jspdf;
+
+    const img = new Image();
+    img.src = "capilogo.png"; // asegúrate de que esté en la misma carpeta
 
     img.onload = function(){
 
-        const doc = new jsPDF();
+        const doc = new jsPDF(); // ← SOLO AQUÍ se crea el PDF
 
-        // ✅ Añadir logo arriba izquierda
+        // ✅ Logo
         doc.addImage(img, "PNG", 15, 10, 30, 30);
 
-        // ✅ Título alineado a la derecha del logo
         const titles = {
             attendance:'INFORME DE ASISTENCIA',
             behavior:'INFORME DE TRABAJO EN CLASE',
@@ -1245,7 +1252,6 @@ function generatePDF(cat){
         doc.setFontSize(16);
         doc.text(titles[cat], 55, 25);
 
-        // Línea separadora
         doc.setLineWidth(0.5);
         doc.line(15, 45, 195, 45);
     const cf=document.getElementById(`${cat}CourseFilter`).value;
