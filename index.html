@@ -468,13 +468,7 @@
 <div class="header">
     <div class="header-top">
         <div class="header-brand">
-            <div class="header-logo">
-    <div class="header-logo">
-    <img src="favicon.ico" alt="Logo Centro" class="logo-img">
-</div>
-
-</div>
-
+            <div class="header-logo">🎓</div>
             <div class="header-info">
                 <h1>Control de Alumnado</h1>
                 <p>Centro Académico Privado de Inglés · Sevilla, 56 Bailén</p>
@@ -1126,7 +1120,7 @@ function sendEmail(){
     const to=document.getElementById('emailTo').value;
     const s=encodeURIComponent(document.getElementById('emailSubject').value);
     const b=encodeURIComponent(document.getElementById('emailBody').value);
-    window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${to}&su=${s}&body=${b}`,'_blank');
+    window.open(`mailto:${to}?subject=${s}&body=${b}`,'_blank');
     closeModal('emailModal');showToast('📧 Abriendo correo...','info');
 }
 
@@ -1224,62 +1218,8 @@ function addPdfFooter(doc){
 }
 
 function generatePDF(cat){
-
-    const week = getWeekKey(cat);
-    if(!week){
-        showToast('⚠️ Selecciona semana','error');
-        return;
-    }
-
-    const { jsPDF } = window.jspdf;
-
-    const img = new Image();
-    img.src = "capilogo.png"; // asegúrate de que esté en la misma carpeta
-
-    img.onload = function(){
-
-        const doc = new jsPDF(); // ← SOLO AQUÍ se crea el PDF
-
-        // ✅ Logo
-        doc.addImage(img, "PNG", 15, 10, 30, 30);
-
-        const titles = {
-            attendance:'INFORME DE ASISTENCIA',
-            behavior:'INFORME DE TRABAJO EN CLASE',
-            writings:'INFORME DE ENTREGAS DE WRITINGS'
-        };
-
-        doc.setFontSize(16);
-        doc.text(titles[cat], 55, 25);
-
-        doc.setLineWidth(0.5);
-        doc.line(15, 45, 195, 45);
-
-        // 🔽 AHORA VA TODO TU CÓDIGO ORIGINAL AQUÍ DENTRO
-
-        const cf=document.getElementById(`${cat}CourseFilter`).value;
-        let filtered=cf?students.filter(s=>s.course===cf):[...students];
-        filtered.sort((a,b)=>a.course.localeCompare(b.course)||a.name.localeCompare(b.name));
-
-        const negStatuses={
-            attendance:['absent'],
-            behavior:['bad','regular'],
-            writings:['not-delivered','late']
-        };
-
-        const incidences=[];
-        filtered.forEach(s=>{
-            const summary=getStudentWeekSummary(week,cat,s.id);
-            const negDays=summary.filter(d=>negStatuses[cat].includes(d.status));
-            if(negDays.length>0){
-                incidences.push({student:s, days:negDays});
-            }
-        });
-
-        // ⚠️ IMPORTANTÍSIMO
-        doc.save("informe.pdf");
-    };
-}
+    const week=getWeekKey(cat);if(!week){showToast('⚠️ Selecciona semana','error');return;}
+    const {jsPDF}=window.jspdf;const doc=new jsPDF();
     const cf=document.getElementById(`${cat}CourseFilter`).value;
     let filtered=cf?students.filter(s=>s.course===cf):[...students];
     filtered.sort((a,b)=>a.course.localeCompare(b.course)||a.name.localeCompare(b.name));
