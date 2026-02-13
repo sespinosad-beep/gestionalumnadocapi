@@ -11,455 +11,199 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
         :root {
-            --primary: #1e3a5f;
-            --primary-light: #2c5282;
-            --primary-soft: #e8f0fe;
-            --primary-hover: #153050;
-            --accent: #3b82f6;
-            --accent-light: #93c5fd;
-            --accent-soft: #dbeafe;
-            --red: #dc2626;
-            --red-light: #fca5a5;
-            --red-soft: #fef2f2;
-            --red-pastel: #ffe4e6;
-            --red-dark: #991b1b;
-            --white: #ffffff;
-            --white-soft: #f8fafc;
-            --white-warm: #fefefe;
-            --bg: #f1f5f9;
-            --bg-warm: #f8fafc;
-            --card: #ffffff;
-            --text: #1e293b;
-            --text-secondary: #64748b;
-            --text-muted: #94a3b8;
-            --border: #e2e8f0;
-            --border-light: #f1f5f9;
-            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-            --shadow: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -1px rgba(0,0,0,0.04);
-            --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -2px rgba(0,0,0,0.04);
-            --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
-            --radius: 16px;
-            --radius-md: 12px;
-            --radius-sm: 8px;
-            --radius-xs: 6px;
+            --primary:#1e3a5f;--primary-light:#2c5282;--primary-soft:#e8f0fe;
+            --accent:#3b82f6;--accent-light:#93c5fd;--accent-soft:#dbeafe;
+            --red:#dc2626;--red-light:#fca5a5;--red-soft:#fef2f2;--red-pastel:#ffe4e6;--red-dark:#991b1b;
+            --bg:#f1f5f9;--bg-warm:#f8fafc;--card:#ffffff;
+            --text:#1e293b;--text-secondary:#64748b;--text-muted:#94a3b8;
+            --border:#e2e8f0;--border-light:#f1f5f9;
+            --shadow-sm:0 1px 2px rgba(0,0,0,0.05);
+            --shadow:0 4px 6px -1px rgba(0,0,0,0.07),0 2px 4px -1px rgba(0,0,0,0.04);
+            --shadow-md:0 10px 15px -3px rgba(0,0,0,0.08),0 4px 6px -2px rgba(0,0,0,0.04);
+            --shadow-lg:0 20px 25px -5px rgba(0,0,0,0.1),0 10px 10px -5px rgba(0,0,0,0.04);
+            --radius:16px;--radius-md:12px;--radius-sm:8px;--radius-xs:6px;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            min-height: 100vh;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, var(--accent) 100%);
-            color: white;
-            padding: 0;
-            box-shadow: var(--shadow-lg);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 18px 30px;
-        }
-
-        .header-brand {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .header-logo {
-            width: 50px; height: 50px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 14px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.6rem;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.15);
-        }
-
-        .header-info h1 { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.3px; line-height: 1.3; }
-        .header-info p { font-size: 0.78rem; opacity: 0.85; font-weight: 400; margin-top: 2px; }
-
-        .header-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-
-        .btn {
-            padding: 9px 18px; border: none; border-radius: var(--radius-sm);
-            cursor: pointer; font-size: 0.82rem; font-weight: 600;
-            display: inline-flex; align-items: center; gap: 6px;
-            transition: all 0.2s ease; text-decoration: none; font-family: inherit;
-        }
-
-        .btn:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
-        .btn:active { transform: translateY(0); }
-        .btn-primary { background: var(--accent); color: white; }
-        .btn-primary:hover { background: #2563eb; }
-        .btn-success { background: #10b981; color: white; }
-        .btn-success:hover { background: #059669; }
-        .btn-danger { background: var(--red); color: white; }
-        .btn-danger:hover { background: var(--red-dark); }
-        .btn-warning { background: #f59e0b; color: white; }
-        .btn-warning:hover { background: #d97706; }
-
-        .btn-outline-white {
-            background: rgba(255,255,255,0.12);
-            border: 1.5px solid rgba(255,255,255,0.35);
-            color: white; backdrop-filter: blur(4px);
-        }
-        .btn-outline-white:hover { background: rgba(255,255,255,0.22); }
-
-        .btn-ghost { background: transparent; color: var(--text-secondary); border: 1.5px solid var(--border); }
-        .btn-ghost:hover { background: var(--bg); border-color: var(--accent); color: var(--accent); }
-
-        .btn-sm { padding: 6px 14px; font-size: 0.78rem; }
-
-        .container { max-width: 1440px; margin: 0 auto; padding: 24px; }
-
-        .tabs {
-            display: flex; gap: 4px; margin-bottom: 24px;
-            background: var(--card); padding: 6px;
-            border-radius: var(--radius); box-shadow: var(--shadow);
-            flex-wrap: wrap; border: 1px solid var(--border-light);
-        }
-
-        .tab {
-            padding: 11px 22px; border: none; background: transparent;
-            border-radius: var(--radius-md); cursor: pointer;
-            font-size: 0.88rem; font-weight: 600; color: var(--text-muted);
-            transition: all 0.25s ease; display: flex; align-items: center;
-            gap: 8px; font-family: inherit;
-        }
-
-        .tab:hover { background: var(--bg); color: var(--text); }
-        .tab.active {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: white; box-shadow: 0 4px 12px rgba(30,58,95,0.3);
-        }
-
-        .tab-content { display: none; }
-        .tab-content.active { display: block; animation: fadeIn 0.3s ease; }
-        @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
-
-        .card {
-            background: var(--card); border-radius: var(--radius);
-            padding: 28px; box-shadow: var(--shadow);
-            margin-bottom: 20px; border: 1px solid var(--border-light);
-        }
-
-        .card-header {
-            display: flex; justify-content: space-between; align-items: center;
-            margin-bottom: 24px; flex-wrap: wrap; gap: 12px;
-        }
-
-        .card-title {
-            font-size: 1.15rem; font-weight: 700;
-            display: flex; align-items: center; gap: 10px; color: var(--primary);
-        }
-
-        .card-title .icon {
-            width: 38px; height: 38px; border-radius: var(--radius-sm);
-            display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
-        }
-        .card-title .icon.blue { background: var(--accent-soft); }
-        .card-title .icon.red { background: var(--red-pastel); }
-        .card-title .icon.green { background: #dcfce7; }
-
-        .week-selector {
-            display: flex; align-items: center; gap: 10px;
-            background: var(--bg-warm); padding: 10px 18px;
-            border-radius: var(--radius-sm); border: 1px solid var(--border); flex-wrap: wrap;
-        }
-
-        .week-selector label { font-weight: 600; color: var(--text-secondary); font-size: 0.85rem; }
-
-        .week-selector input[type="week"],
-        .week-selector select,
-        .filter-bar select,
-        .filter-bar input {
-            padding: 8px 14px; border: 1.5px solid var(--border);
-            border-radius: var(--radius-xs); font-size: 0.85rem;
-            background: white; color: var(--text); font-family: inherit; transition: border-color 0.2s;
-        }
-
-        .week-selector input:focus, .week-selector select:focus,
-        .filter-bar select:focus, .filter-bar input:focus {
-            outline: none; border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
-        }
-
-        .filter-bar { display: flex; gap: 10px; align-items: center; margin-bottom: 16px; flex-wrap: wrap; }
-        .filter-bar select, .filter-bar input { min-width: 180px; }
-        .bulk-actions { display: flex; gap: 8px; flex-wrap: wrap; }
-
-        .table-container {
-            overflow-x: auto; border-radius: var(--radius-md); border: 1px solid var(--border);
-        }
-
-        table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
-
-        thead th {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: white; padding: 14px 16px; text-align: left;
-            font-weight: 600; white-space: nowrap; font-size: 0.82rem;
-            letter-spacing: 0.02em; text-transform: uppercase;
-        }
-
-        thead th:first-child { border-radius: var(--radius-md) 0 0 0; }
-        thead th:last-child { border-radius: 0 var(--radius-md) 0 0; }
-
-        tbody tr { transition: background 0.15s; }
-        tbody tr:hover { background: var(--primary-soft); }
-        tbody tr:nth-child(even) { background: var(--bg-warm); }
-        tbody tr:nth-child(even):hover { background: var(--primary-soft); }
-
-        td { padding: 12px 16px; border-bottom: 1px solid var(--border-light); vertical-align: middle; }
-
-        .status-btn {
-            padding: 5px 14px; border: 2px solid var(--border); border-radius: 20px;
-            cursor: pointer; font-size: 0.76rem; font-weight: 600;
-            transition: all 0.2s ease; background: white; white-space: nowrap; font-family: inherit;
-        }
-
-        .status-btn.present { background: #dcfce7; border-color: #22c55e; color: #166534; }
-        .status-btn.absent { background: var(--red-pastel); border-color: var(--red); color: var(--red-dark); }
-        .status-btn.justified { background: #fef3c7; border-color: #f59e0b; color: #92400e; }
-        .status-btn.good { background: #dcfce7; border-color: #22c55e; color: #166534; }
-        .status-btn.bad { background: var(--red-pastel); border-color: var(--red); color: var(--red-dark); }
-        .status-btn.regular { background: #fef3c7; border-color: #f59e0b; color: #92400e; }
-        .status-btn.delivered { background: #dcfce7; border-color: #22c55e; color: #166534; }
-        .status-btn.not-delivered { background: var(--red-pastel); border-color: var(--red); color: var(--red-dark); }
-        .status-btn.late { background: #fef3c7; border-color: #f59e0b; color: #92400e; }
-
-        .email-btn {
-            width: 34px; height: 34px; border-radius: 10px; border: none;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white; cursor: pointer; display: inline-flex;
-            align-items: center; justify-content: center; font-size: 0.95rem;
-            transition: all 0.2s ease;
-        }
-
-        .email-btn:hover { transform: scale(1.1); box-shadow: 0 4px 12px rgba(30,58,95,0.3); }
-        .email-btn.disabled { opacity: 0.25; cursor: not-allowed; pointer-events: none; }
-
-        .edit-email-btn {
-            width: 28px; height: 28px; border-radius: 8px;
-            border: 1.5px solid var(--border); background: white;
-            color: var(--text-secondary); cursor: pointer;
-            display: inline-flex; align-items: center; justify-content: center;
-            font-size: 0.8rem; transition: all 0.2s ease;
-        }
-
-        .edit-email-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
-
-        .note-input {
-            width: 130px; padding: 6px 10px;
-            border: 1.5px solid var(--border); border-radius: var(--radius-xs);
-            font-size: 0.8rem; font-family: inherit; transition: border-color 0.2s;
-        }
-
-        .note-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
-
-        .upload-zone {
-            border: 2px dashed var(--border); border-radius: var(--radius);
-            padding: 50px 40px; text-align: center; transition: all 0.3s ease;
-            cursor: pointer; background: linear-gradient(135deg, var(--white-soft), var(--accent-soft));
-        }
-
-        .upload-zone:hover, .upload-zone.dragover {
-            border-color: var(--accent); background: linear-gradient(135deg, var(--accent-soft), #c7d2fe);
-            transform: translateY(-2px); box-shadow: var(--shadow-md);
-        }
-
-        .upload-zone .icon { font-size: 3.5rem; margin-bottom: 12px; }
-        .upload-zone h3 { font-size: 1.15rem; margin-bottom: 6px; color: var(--primary); font-weight: 700; }
-        .upload-zone p { color: var(--text-secondary); font-size: 0.88rem; }
-        .upload-zone input[type="file"] { display: none; }
-
-        .stats-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 14px; margin-bottom: 20px;
-        }
-
-        .stat-card {
-            background: var(--card); border-radius: var(--radius-md);
-            padding: 20px; text-align: center; box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-light); position: relative; overflow: hidden;
-        }
-
-        .stat-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; }
-        .stat-card.blue::before { background: linear-gradient(90deg, var(--primary), var(--accent)); }
-        .stat-card.green::before { background: linear-gradient(90deg, #22c55e, #10b981); }
-        .stat-card.red::before { background: linear-gradient(90deg, var(--red), #ef4444); }
-        .stat-card.yellow::before { background: linear-gradient(90deg, #f59e0b, #eab308); }
-
-        .stat-number { font-size: 2rem; font-weight: 800; color: var(--text); }
-        .stat-label { font-size: 0.78rem; color: var(--text-muted); margin-top: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; }
-
-        .modal-overlay {
-            display: none; position: fixed; top:0; left:0;
-            width: 100%; height: 100%; background: rgba(15,23,42,0.6);
-            backdrop-filter: blur(4px); z-index: 200;
-            justify-content: center; align-items: center; padding: 20px;
-        }
-
-        .modal-overlay.active { display: flex; }
-
-        .modal {
-            background: white; border-radius: var(--radius); padding: 32px;
-            max-width: 560px; width: 100%; max-height: 85vh;
-            overflow-y: auto; box-shadow: var(--shadow-lg);
-            animation: modalIn 0.3s ease;
-        }
-
-        @keyframes modalIn { from { opacity:0; transform:scale(0.95) translateY(10px); } to { opacity:1; transform:scale(1) translateY(0); } }
-
-        .modal h2 { margin-bottom: 20px; display: flex; align-items: center; gap: 10px; color: var(--primary); font-size: 1.2rem; }
-        .modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 24px; }
-
-        .form-group { margin-bottom: 16px; }
-        .form-group label { font-weight: 600; color: var(--text); display: block; margin-bottom: 6px; font-size: 0.85rem; }
-
-        .form-group input, .form-group textarea, .form-group select {
-            width: 100%; padding: 10px 14px; border: 1.5px solid var(--border);
-            border-radius: var(--radius-sm); font-size: 0.9rem; font-family: inherit;
-            transition: border-color 0.2s; background: white;
-        }
-
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-            outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
-        }
-
-        .form-group textarea { min-height: 110px; resize: vertical; }
-
-        .toast-container {
-            position: fixed; bottom: 24px; right: 24px; z-index: 300;
-            display: flex; flex-direction: column; gap: 10px;
-        }
-
-        .toast {
-            padding: 14px 22px; border-radius: var(--radius-sm); box-shadow: var(--shadow-lg);
-            display: flex; align-items: center; gap: 10px; animation: slideIn 0.3s ease;
-            font-weight: 600; font-size: 0.88rem; color: white; max-width: 380px;
-        }
-
-        .toast.success { background: linear-gradient(135deg, #059669, #10b981); }
-        .toast.error { background: linear-gradient(135deg, var(--red-dark), var(--red)); }
-        .toast.info { background: linear-gradient(135deg, var(--primary), var(--accent)); }
-
-        @keyframes slideIn { from { transform: translateX(100%); opacity:0; } to { transform: translateX(0); opacity:1; } }
-
-        .student-name { font-weight: 600; color: var(--text); }
-
-        .student-course {
-            font-size: 0.75rem; color: var(--primary); background: var(--primary-soft);
-            padding: 3px 10px; border-radius: 12px; display: inline-block; font-weight: 600;
-        }
-
-        .inline-flex { display: flex; gap: 6px; align-items: center; }
-
-        .week-history { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-
-        .week-chip {
-            padding: 6px 14px; background: var(--bg); border: 1.5px solid var(--border);
-            border-radius: 20px; font-size: 0.78rem; font-weight: 600;
-            cursor: pointer; transition: all 0.2s; font-family: inherit; color: var(--text-secondary);
-        }
-
-        .week-chip:hover, .week-chip.active {
-            background: var(--primary); color: white; border-color: var(--primary);
-            box-shadow: 0 2px 8px rgba(30,58,95,0.2);
-        }
-
-        .empty-state { text-align: center; padding: 50px 20px; color: var(--text-muted); }
-        .empty-state .icon { font-size: 3.5rem; margin-bottom: 12px; }
-        .empty-state h3 { font-size: 1.1rem; margin-bottom: 6px; color: var(--text-secondary); }
-
-        .summary-list { list-style: none; padding: 0; }
-
-        .summary-list li {
-            padding: 10px 14px; border-bottom: 1px solid var(--border-light);
-            display: flex; justify-content: space-between; align-items: center; transition: background 0.15s;
-        }
-
-        .summary-list li:hover { background: var(--bg-warm); }
-        .summary-list li:last-child { border-bottom: none; }
-
-        .email-text { font-size: 0.82rem; }
-        .email-ok { color: #059669; }
-        .email-missing { color: var(--red); font-style: italic; }
-
-        .debug-preview {
-            background: var(--bg-warm); border: 1px solid var(--border);
-            border-radius: var(--radius-sm); padding: 16px; margin-top: 16px;
-            font-size: 0.82rem; max-height: 200px; overflow-y: auto;
-        }
-
-        .debug-preview h4 { margin-bottom: 8px; color: var(--primary); }
-        .debug-preview code { background: var(--accent-soft); padding: 2px 6px; border-radius: 4px; font-size: 0.78rem; }
-
-        .course-filter-section {
-            background: var(--bg-warm); border: 1px solid var(--border);
-            border-radius: var(--radius-sm); padding: 14px 18px; margin-bottom: 16px;
-            display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
-        }
-
-        .course-filter-section label { font-weight: 600; color: var(--primary); font-size: 0.88rem; white-space: nowrap; }
-
-        .course-filter-section select, .course-filter-section input {
-            padding: 8px 14px; border: 1.5px solid var(--border);
-            border-radius: var(--radius-xs); font-size: 0.85rem;
-            font-family: inherit; background: white; min-width: 200px;
-        }
-
-        .course-filter-section select:focus, .course-filter-section input:focus {
-            outline: none; border-color: var(--accent);
-        }
-
-        /* Day selector for week tracking */
-        .day-selector {
-            display: flex; gap: 4px; flex-wrap: wrap;
-        }
-
-        .day-btn {
-            padding: 4px 10px; border: 1.5px solid var(--border); border-radius: 14px;
-            cursor: pointer; font-size: 0.72rem; font-weight: 600;
-            background: white; color: var(--text-secondary); font-family: inherit;
-            transition: all 0.2s;
-        }
-
-        .day-btn:hover { border-color: var(--accent); color: var(--accent); }
-        .day-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
-
-        .day-tag {
-            display: inline-block; padding: 2px 8px; border-radius: 10px;
-            font-size: 0.7rem; font-weight: 600; margin: 1px 2px;
-        }
-
-        .day-tag.absent-day { background: var(--red-pastel); color: var(--red-dark); }
-        .day-tag.present-day { background: #dcfce7; color: #166534; }
-        .day-tag.justified-day { background: #fef3c7; color: #92400e; }
-
-        @media (max-width: 768px) {
-            .header-top { flex-direction: column; gap: 12px; text-align: center; }
-            .header-actions { justify-content: center; }
-            .tabs { justify-content: center; }
-            .tab { padding: 9px 16px; font-size: 0.82rem; }
-            .card { padding: 18px; }
-            .card-header { flex-direction: column; align-items: flex-start; }
-            .week-selector { width: 100%; }
-            .filter-bar { flex-direction: column; }
-            .filter-bar select, .filter-bar input { width: 100%; min-width: auto; }
-            td, th { padding: 8px 10px; font-size: 0.78rem; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        *{margin:0;padding:0;box-sizing:border-box;}
+
+        body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;}
+
+        .header{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-light) 50%,var(--accent) 100%);color:white;box-shadow:var(--shadow-lg);position:sticky;top:0;z-index:100;}
+        .header-top{display:flex;justify-content:space-between;align-items:center;padding:18px 30px;}
+        .header-brand{display:flex;align-items:center;gap:15px;}
+        .header-logo{width:50px;height:50px;background:rgba(255,255,255,0.2);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.15);}
+        .header-info h1{font-size:1.15rem;font-weight:700;letter-spacing:-0.3px;line-height:1.3;}
+        .header-info p{font-size:0.78rem;opacity:0.85;font-weight:400;margin-top:2px;}
+        .header-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+
+        .btn{padding:9px 18px;border:none;border-radius:var(--radius-sm);cursor:pointer;font-size:0.82rem;font-weight:600;display:inline-flex;align-items:center;gap:6px;transition:all 0.2s ease;text-decoration:none;font-family:inherit;}
+        .btn:hover{transform:translateY(-1px);box-shadow:var(--shadow);}
+        .btn:active{transform:translateY(0);}
+        .btn-primary{background:var(--accent);color:white;}
+        .btn-primary:hover{background:#2563eb;}
+        .btn-success{background:#10b981;color:white;}
+        .btn-success:hover{background:#059669;}
+        .btn-danger{background:var(--red);color:white;}
+        .btn-danger:hover{background:var(--red-dark);}
+        .btn-warning{background:#f59e0b;color:white;}
+        .btn-warning:hover{background:#d97706;}
+        .btn-outline-white{background:rgba(255,255,255,0.12);border:1.5px solid rgba(255,255,255,0.35);color:white;backdrop-filter:blur(4px);}
+        .btn-outline-white:hover{background:rgba(255,255,255,0.22);}
+        .btn-ghost{background:transparent;color:var(--text-secondary);border:1.5px solid var(--border);}
+        .btn-ghost:hover{background:var(--bg);border-color:var(--accent);color:var(--accent);}
+        .btn-sm{padding:6px 14px;font-size:0.78rem;}
+
+        .container{max-width:1440px;margin:0 auto;padding:24px;}
+
+        .tabs{display:flex;gap:4px;margin-bottom:24px;background:var(--card);padding:6px;border-radius:var(--radius);box-shadow:var(--shadow);flex-wrap:wrap;border:1px solid var(--border-light);}
+        .tab{padding:11px 22px;border:none;background:transparent;border-radius:var(--radius-md);cursor:pointer;font-size:0.88rem;font-weight:600;color:var(--text-muted);transition:all 0.25s ease;display:flex;align-items:center;gap:8px;font-family:inherit;}
+        .tab:hover{background:var(--bg);color:var(--text);}
+        .tab.active{background:linear-gradient(135deg,var(--primary),var(--primary-light));color:white;box-shadow:0 4px 12px rgba(30,58,95,0.3);}
+        .tab-content{display:none;}
+        .tab-content.active{display:block;animation:fadeIn 0.3s ease;}
+        @keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+
+        .card{background:var(--card);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);margin-bottom:20px;border:1px solid var(--border-light);}
+        .card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px;}
+        .card-title{font-size:1.15rem;font-weight:700;display:flex;align-items:center;gap:10px;color:var(--primary);}
+        .card-title .icon{width:38px;height:38px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
+        .card-title .icon.blue{background:var(--accent-soft);}
+        .card-title .icon.red{background:var(--red-pastel);}
+        .card-title .icon.green{background:#dcfce7;}
+
+        .week-selector{display:flex;align-items:center;gap:10px;background:var(--bg-warm);padding:10px 18px;border-radius:var(--radius-sm);border:1px solid var(--border);flex-wrap:wrap;}
+        .week-selector label{font-weight:600;color:var(--text-secondary);font-size:0.85rem;}
+        .week-selector input[type="week"],.week-selector input[type="date"],.week-selector select,.filter-bar select,.filter-bar input{padding:8px 14px;border:1.5px solid var(--border);border-radius:var(--radius-xs);font-size:0.85rem;background:white;color:var(--text);font-family:inherit;transition:border-color 0.2s;}
+        .week-selector input:focus,.week-selector select:focus,.filter-bar select:focus,.filter-bar input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(59,130,246,0.1);}
+
+        .filter-bar{display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap;}
+        .filter-bar select,.filter-bar input{min-width:180px;}
+        .bulk-actions{display:flex;gap:8px;flex-wrap:wrap;}
+
+        .table-container{overflow-x:auto;border-radius:var(--radius-md);border:1px solid var(--border);}
+        table{width:100%;border-collapse:collapse;font-size:0.87rem;}
+        thead th{background:linear-gradient(135deg,var(--primary),var(--primary-light));color:white;padding:14px 16px;text-align:left;font-weight:600;white-space:nowrap;font-size:0.82rem;letter-spacing:0.02em;text-transform:uppercase;}
+        thead th:first-child{border-radius:var(--radius-md) 0 0 0;}
+        thead th:last-child{border-radius:0 var(--radius-md) 0 0;}
+        tbody tr{transition:background 0.15s;}
+        tbody tr:hover{background:var(--primary-soft);}
+        tbody tr:nth-child(even){background:var(--bg-warm);}
+        tbody tr:nth-child(even):hover{background:var(--primary-soft);}
+        td{padding:12px 16px;border-bottom:1px solid var(--border-light);vertical-align:middle;}
+
+        .status-btn{padding:5px 14px;border:2px solid var(--border);border-radius:20px;cursor:pointer;font-size:0.76rem;font-weight:600;transition:all 0.2s ease;background:white;white-space:nowrap;font-family:inherit;}
+        .status-btn.present{background:#dcfce7;border-color:#22c55e;color:#166534;}
+        .status-btn.absent{background:var(--red-pastel);border-color:var(--red);color:var(--red-dark);}
+        .status-btn.justified{background:#fef3c7;border-color:#f59e0b;color:#92400e;}
+        .status-btn.good{background:#dcfce7;border-color:#22c55e;color:#166534;}
+        .status-btn.bad{background:var(--red-pastel);border-color:var(--red);color:var(--red-dark);}
+        .status-btn.regular{background:#fef3c7;border-color:#f59e0b;color:#92400e;}
+        .status-btn.delivered{background:#dcfce7;border-color:#22c55e;color:#166534;}
+        .status-btn.not-delivered{background:var(--red-pastel);border-color:var(--red);color:var(--red-dark);}
+        .status-btn.late{background:#fef3c7;border-color:#f59e0b;color:#92400e;}
+
+        .email-btn{width:34px;height:34px;border-radius:10px;border:none;background:linear-gradient(135deg,var(--primary),var(--accent));color:white;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:0.95rem;transition:all 0.2s ease;}
+        .email-btn:hover{transform:scale(1.1);box-shadow:0 4px 12px rgba(30,58,95,0.3);}
+        .email-btn.disabled{opacity:0.25;cursor:not-allowed;pointer-events:none;}
+
+        .edit-email-btn{width:28px;height:28px;border-radius:8px;border:1.5px solid var(--border);background:white;color:var(--text-secondary);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:0.8rem;transition:all 0.2s ease;}
+        .edit-email-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft);}
+
+        .note-input{width:130px;padding:6px 10px;border:1.5px solid var(--border);border-radius:var(--radius-xs);font-size:0.8rem;font-family:inherit;transition:border-color 0.2s;}
+        .note-input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(59,130,246,0.1);}
+
+        .upload-zone{border:2px dashed var(--border);border-radius:var(--radius);padding:50px 40px;text-align:center;transition:all 0.3s ease;cursor:pointer;background:linear-gradient(135deg,var(--bg-warm),var(--accent-soft));}
+        .upload-zone:hover,.upload-zone.dragover{border-color:var(--accent);background:linear-gradient(135deg,var(--accent-soft),#c7d2fe);transform:translateY(-2px);box-shadow:var(--shadow-md);}
+        .upload-zone .icon{font-size:3.5rem;margin-bottom:12px;}
+        .upload-zone h3{font-size:1.15rem;margin-bottom:6px;color:var(--primary);font-weight:700;}
+        .upload-zone p{color:var(--text-secondary);font-size:0.88rem;}
+        .upload-zone input[type="file"]{display:none;}
+
+        .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:20px;}
+        .stat-card{background:var(--card);border-radius:var(--radius-md);padding:20px;text-align:center;box-shadow:var(--shadow-sm);border:1px solid var(--border-light);position:relative;overflow:hidden;}
+        .stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;}
+        .stat-card.blue::before{background:linear-gradient(90deg,var(--primary),var(--accent));}
+        .stat-card.green::before{background:linear-gradient(90deg,#22c55e,#10b981);}
+        .stat-card.red::before{background:linear-gradient(90deg,var(--red),#ef4444);}
+        .stat-card.yellow::before{background:linear-gradient(90deg,#f59e0b,#eab308);}
+        .stat-number{font-size:2rem;font-weight:800;color:var(--text);}
+        .stat-label{font-size:0.78rem;color:var(--text-muted);margin-top:4px;font-weight:600;text-transform:uppercase;letter-spacing:0.03em;}
+
+        .modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(15,23,42,0.6);backdrop-filter:blur(4px);z-index:200;justify-content:center;align-items:center;padding:20px;}
+        .modal-overlay.active{display:flex;}
+        .modal{background:white;border-radius:var(--radius);padding:32px;max-width:620px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:var(--shadow-lg);animation:modalIn 0.3s ease;}
+        @keyframes modalIn{from{opacity:0;transform:scale(0.95) translateY(10px);}to{opacity:1;transform:scale(1) translateY(0);}}
+        .modal h2{margin-bottom:20px;display:flex;align-items:center;gap:10px;color:var(--primary);font-size:1.2rem;}
+        .modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:24px;flex-wrap:wrap;}
+
+        .form-group{margin-bottom:16px;}
+        .form-group label{font-weight:600;color:var(--text);display:block;margin-bottom:6px;font-size:0.85rem;}
+        .form-group input,.form-group textarea,.form-group select{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:0.9rem;font-family:inherit;transition:border-color 0.2s;background:white;}
+        .form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(59,130,246,0.1);}
+        .form-group textarea{min-height:110px;resize:vertical;}
+        .form-group small{color:var(--text-muted);font-size:0.75rem;margin-top:4px;display:block;}
+
+        .toast-container{position:fixed;bottom:24px;right:24px;z-index:300;display:flex;flex-direction:column;gap:10px;}
+        .toast{padding:14px 22px;border-radius:var(--radius-sm);box-shadow:var(--shadow-lg);display:flex;align-items:center;gap:10px;animation:slideIn 0.3s ease;font-weight:600;font-size:0.88rem;color:white;max-width:380px;}
+        .toast.success{background:linear-gradient(135deg,#059669,#10b981);}
+        .toast.error{background:linear-gradient(135deg,var(--red-dark),var(--red));}
+        .toast.info{background:linear-gradient(135deg,var(--primary),var(--accent));}
+        @keyframes slideIn{from{transform:translateX(100%);opacity:0;}to{transform:translateX(0);opacity:1;}}
+
+        .student-name{font-weight:600;color:var(--text);}
+        .student-course{font-size:0.75rem;color:var(--primary);background:var(--primary-soft);padding:3px 10px;border-radius:12px;display:inline-block;font-weight:600;}
+        .inline-flex{display:flex;gap:6px;align-items:center;}
+
+        .week-history{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+        .week-chip{padding:6px 14px;background:var(--bg);border:1.5px solid var(--border);border-radius:20px;font-size:0.78rem;font-weight:600;cursor:pointer;transition:all 0.2s;font-family:inherit;color:var(--text-secondary);}
+        .week-chip:hover,.week-chip.active{background:var(--primary);color:white;border-color:var(--primary);box-shadow:0 2px 8px rgba(30,58,95,0.2);}
+
+        .empty-state{text-align:center;padding:50px 20px;color:var(--text-muted);}
+        .empty-state .icon{font-size:3.5rem;margin-bottom:12px;}
+        .empty-state h3{font-size:1.1rem;margin-bottom:6px;color:var(--text-secondary);}
+
+        .summary-list{list-style:none;padding:0;}
+        .summary-list li{padding:10px 14px;border-bottom:1px solid var(--border-light);display:flex;justify-content:space-between;align-items:center;transition:background 0.15s;}
+        .summary-list li:hover{background:var(--bg-warm);}
+        .summary-list li:last-child{border-bottom:none;}
+
+        .email-ok{color:#059669;font-size:0.82rem;}
+        .email-missing{color:var(--red);font-style:italic;font-size:0.82rem;}
+
+        .debug-preview{background:var(--bg-warm);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px;margin-top:16px;font-size:0.82rem;max-height:200px;overflow-y:auto;}
+        .debug-preview h4{margin-bottom:8px;color:var(--primary);}
+        .debug-preview code{background:var(--accent-soft);padding:2px 6px;border-radius:4px;font-size:0.78rem;}
+
+        .course-filter-section{background:var(--bg-warm);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+        .course-filter-section label{font-weight:600;color:var(--primary);font-size:0.88rem;white-space:nowrap;}
+        .course-filter-section select,.course-filter-section input{padding:8px 14px;border:1.5px solid var(--border);border-radius:var(--radius-xs);font-size:0.85rem;font-family:inherit;background:white;min-width:200px;}
+        .course-filter-section select:focus,.course-filter-section input:focus{outline:none;border-color:var(--accent);}
+
+        .day-tag{display:inline-block;padding:2px 8px;border-radius:10px;font-size:0.7rem;font-weight:600;margin:1px 2px;}
+        .day-tag.absent-day{background:var(--red-pastel);color:var(--red-dark);}
+        .day-tag.justified-day{background:#fef3c7;color:#92400e;}
+        .day-tag.present-day{background:#dcfce7;color:#166534;}
+
+        .gravity-btn{padding:6px 16px;border:2px solid var(--border);border-radius:20px;cursor:pointer;font-size:0.78rem;font-weight:600;background:white;font-family:inherit;transition:all 0.2s;}
+        .gravity-btn.active-leve{background:#dcfce7;border-color:#22c55e;color:#166534;transform:scale(1.05);}
+        .gravity-btn.active-moderada{background:#fef3c7;border-color:#f59e0b;color:#92400e;transform:scale(1.05);}
+        .gravity-btn.active-grave{background:var(--red-pastel);border-color:var(--red);color:var(--red-dark);transform:scale(1.05);}
+        .gravity-btn:not([class*="active"]){opacity:0.5;}
+
+        .director-preview{background:var(--bg-warm);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px;max-height:280px;overflow-y:auto;font-size:0.8rem;white-space:pre-wrap;line-height:1.6;font-family:'Courier New',monospace;color:var(--text);}
+
+        @media(max-width:768px){
+            .header-top{flex-direction:column;gap:12px;text-align:center;}
+            .header-actions{justify-content:center;}
+            .tabs{justify-content:center;}
+            .tab{padding:9px 16px;font-size:0.82rem;}
+            .card{padding:18px;}
+            .card-header{flex-direction:column;align-items:flex-start;}
+            .week-selector{width:100%;}
+            .filter-bar{flex-direction:column;}
+            .filter-bar select,.filter-bar input{width:100%;min-width:auto;}
+            td,th{padding:8px 10px;font-size:0.78rem;}
+            .stats-grid{grid-template-columns:repeat(2,1fr);}
         }
     </style>
 </head>
@@ -468,7 +212,7 @@
 <div class="header">
     <div class="header-top">
         <div class="header-brand">
-            <img src="favicon.ico" alt="Logo Centro" class="logo-img">
+            <div class="header-logo">🎓</div>
             <div class="header-info">
                 <h1>Control de Alumnado</h1>
                 <p>Centro Académico Privado de Inglés · Sevilla, 56 Bailén</p>
@@ -477,6 +221,7 @@
         <div class="header-actions">
             <button class="btn btn-outline-white btn-sm" onclick="exportAllData()">💾 Exportar</button>
             <button class="btn btn-outline-white btn-sm" onclick="importAllData()">📂 Importar</button>
+            <button class="btn btn-outline-white btn-sm" onclick="openDirectorEmailModal()" style="border-color:rgba(147,197,253,0.7);color:#93c5fd;">👔 Email Director</button>
             <button class="btn btn-outline-white btn-sm" onclick="confirmClearAll()" style="border-color:rgba(252,165,165,0.5);color:#fca5a5;">🗑️ Borrar</button>
             <input type="file" id="importDataInput" accept=".json" style="display:none" onchange="handleImportData(event)">
         </div>
@@ -492,7 +237,7 @@
         <button class="tab" onclick="switchTab('reports',this)">📊 Informes</button>
     </div>
 
-    <!-- TAB ALUMNOS -->
+    <!-- ALUMNOS -->
     <div id="tab-students" class="tab-content active">
         <div class="card">
             <div class="card-header">
@@ -502,32 +247,30 @@
             <div class="upload-zone" id="uploadZone" onclick="document.getElementById('excelInput').click()">
                 <div class="icon">📁</div>
                 <h3>Importar desde Excel</h3>
-                <p>Arrastra o haz clic · Columnas: <strong>Nombre | Curso | Email Padre</strong></p>
+                <p>Columnas: <strong>Nombre | Curso | Email Padre</strong></p>
                 <input type="file" id="excelInput" accept=".xlsx,.xls,.csv" onchange="handleExcelUpload(event)">
             </div>
             <div class="course-filter-section" style="margin-top:20px;">
                 <label>📚 Filtrar:</label>
-                <select id="studentsCourseFilter" onchange="renderStudentsList()"><option value="">Todos los cursos</option></select>
-                <input type="text" id="studentsSearch" placeholder="🔍 Buscar alumno..." oninput="renderStudentsList()">
+                <select id="studentsCourseFilter" onchange="renderStudentsList()"><option value="">Todos</option></select>
+                <input type="text" id="studentsSearch" placeholder="🔍 Buscar..." oninput="renderStudentsList()">
             </div>
             <div id="studentsList" style="margin-top:16px;"></div>
         </div>
     </div>
 
-    <!-- TAB ASISTENCIA -->
+    <!-- ASISTENCIA -->
     <div id="tab-attendance" class="tab-content">
         <div class="card">
             <div class="card-header">
-                <div class="card-title"><span class="icon blue">📋</span> Control de Asistencia</div>
+                <div class="card-title"><span class="icon blue">📋</span> Asistencia</div>
                 <div class="week-selector">
-                    <label>📅 Semana:</label>
-                    <input type="week" id="attendanceWeek" onchange="loadWeekData('attendance')">
-                    <label>📆 Día:</label>
-                    <input type="date" id="attendanceDay" onchange="loadWeekData('attendance')">
+                    <label>📅 Semana:</label><input type="week" id="attendanceWeek" onchange="loadWeekData('attendance')">
+                    <label>📆 Día:</label><input type="date" id="attendanceDay" onchange="loadWeekData('attendance')">
                 </div>
             </div>
             <div class="filter-bar">
-                <select id="attendanceCourseFilter" onchange="loadWeekData('attendance')"><option value="">Todos los cursos</option></select>
+                <select id="attendanceCourseFilter" onchange="loadWeekData('attendance')"><option value="">Todos</option></select>
                 <input type="text" id="attendanceSearch" placeholder="🔍 Buscar..." oninput="loadWeekData('attendance')">
                 <div class="bulk-actions">
                     <button class="btn btn-success btn-sm" onclick="setAllStatus('attendance','present')">✅ Todos Presentes</button>
@@ -537,26 +280,21 @@
             <div id="attendanceStats" class="stats-grid"></div>
             <div class="table-container" id="attendanceTable"></div>
         </div>
-        <div class="card">
-            <div class="card-title" style="margin-bottom:10px;"><span class="icon blue">📅</span> Historial</div>
-            <div id="attendanceWeekHistory" class="week-history"></div>
-        </div>
+        <div class="card"><div class="card-title" style="margin-bottom:10px;">📅 Historial</div><div id="attendanceWeekHistory" class="week-history"></div></div>
     </div>
 
-    <!-- TAB TRABAJO -->
+    <!-- TRABAJO -->
     <div id="tab-behavior" class="tab-content">
         <div class="card">
             <div class="card-header">
-                <div class="card-title"><span class="icon green">⭐</span> Control de Trabajo</div>
+                <div class="card-title"><span class="icon green">⭐</span> Trabajo / Comportamiento</div>
                 <div class="week-selector">
-                    <label>📅 Semana:</label>
-                    <input type="week" id="behaviorWeek" onchange="loadWeekData('behavior')">
-                    <label>📆 Día:</label>
-                    <input type="date" id="behaviorDay" onchange="loadWeekData('behavior')">
+                    <label>📅 Semana:</label><input type="week" id="behaviorWeek" onchange="loadWeekData('behavior')">
+                    <label>📆 Día:</label><input type="date" id="behaviorDay" onchange="loadWeekData('behavior')">
                 </div>
             </div>
             <div class="filter-bar">
-                <select id="behaviorCourseFilter" onchange="loadWeekData('behavior')"><option value="">Todos los cursos</option></select>
+                <select id="behaviorCourseFilter" onchange="loadWeekData('behavior')"><option value="">Todos</option></select>
                 <input type="text" id="behaviorSearch" placeholder="🔍 Buscar..." oninput="loadWeekData('behavior')">
                 <div class="bulk-actions">
                     <button class="btn btn-success btn-sm" onclick="setAllStatus('behavior','good')">✅ Todos Bien</button>
@@ -566,26 +304,21 @@
             <div id="behaviorStats" class="stats-grid"></div>
             <div class="table-container" id="behaviorTable"></div>
         </div>
-        <div class="card">
-            <div class="card-title" style="margin-bottom:10px;"><span class="icon green">📅</span> Historial</div>
-            <div id="behaviorWeekHistory" class="week-history"></div>
-        </div>
+        <div class="card"><div class="card-title" style="margin-bottom:10px;">📅 Historial</div><div id="behaviorWeekHistory" class="week-history"></div></div>
     </div>
 
-    <!-- TAB WRITINGS -->
+    <!-- WRITINGS -->
     <div id="tab-writings" class="tab-content">
         <div class="card">
             <div class="card-header">
-                <div class="card-title"><span class="icon red">✍️</span> Control de Writings</div>
+                <div class="card-title"><span class="icon red">✍️</span> Writings</div>
                 <div class="week-selector">
-                    <label>📅 Semana:</label>
-                    <input type="week" id="writingsWeek" onchange="loadWeekData('writings')">
-                    <label>📆 Día:</label>
-                    <input type="date" id="writingsDay" onchange="loadWeekData('writings')">
+                    <label>📅 Semana:</label><input type="week" id="writingsWeek" onchange="loadWeekData('writings')">
+                    <label>📆 Día:</label><input type="date" id="writingsDay" onchange="loadWeekData('writings')">
                 </div>
             </div>
             <div class="filter-bar">
-                <select id="writingsCourseFilter" onchange="loadWeekData('writings')"><option value="">Todos los cursos</option></select>
+                <select id="writingsCourseFilter" onchange="loadWeekData('writings')"><option value="">Todos</option></select>
                 <input type="text" id="writingsSearch" placeholder="🔍 Buscar..." oninput="loadWeekData('writings')">
                 <div class="bulk-actions">
                     <button class="btn btn-success btn-sm" onclick="setAllStatus('writings','delivered')">✅ Todos Entregados</button>
@@ -595,857 +328,62 @@
             <div id="writingsStats" class="stats-grid"></div>
             <div class="table-container" id="writingsTable"></div>
         </div>
-        <div class="card">
-            <div class="card-title" style="margin-bottom:10px;"><span class="icon red">📅</span> Historial</div>
-            <div id="writingsWeekHistory" class="week-history"></div>
-        </div>
+        <div class="card"><div class="card-title" style="margin-bottom:10px;">📅 Historial</div><div id="writingsWeekHistory" class="week-history"></div></div>
     </div>
 
-    <!-- TAB INFORMES -->
+    <!-- INFORMES -->
     <div id="tab-reports" class="tab-content">
         <div class="card">
             <div class="card-header">
-                <div class="card-title"><span class="icon blue">📊</span> Informes y Reportes</div>
+                <div class="card-title"><span class="icon blue">📊</span> Informes</div>
                 <div class="week-selector">
-                    <label>📅 Semana:</label>
-                    <input type="week" id="reportsWeek" onchange="loadReports()">
-                    <select id="reportsCourseFilter" onchange="loadReports()"><option value="">Todos los cursos</option></select>
+                    <label>📅 Semana:</label><input type="week" id="reportsWeek" onchange="loadReports()">
+                    <select id="reportsCourseFilter" onchange="loadReports()"><option value="">Todos</option></select>
                 </div>
             </div>
         </div>
         <div class="stats-grid" id="reportStatsGrid"></div>
-        <div class="card">
-            <div class="card-title" style="margin-bottom:15px;"><span class="icon red">❌</span> NO asistieron</div>
-            <div id="reportAbsent"></div>
-        </div>
-        <div class="card">
-            <div class="card-title" style="margin-bottom:15px;"><span class="icon red">⚠️</span> MAL trabajo</div>
-            <div id="reportBadBehavior"></div>
-        </div>
-        <div class="card">
-            <div class="card-title" style="margin-bottom:15px;"><span class="icon red">📝</span> Sin Writing</div>
-            <div id="reportNoWriting"></div>
-        </div>
+        <div class="card"><div class="card-title" style="margin-bottom:15px;"><span class="icon red">❌</span> No asistieron</div><div id="reportAbsent"></div></div>
+        <div class="card"><div class="card-title" style="margin-bottom:15px;"><span class="icon red">⚠️</span> Mal trabajo / Comportamiento</div><div id="reportBadBehavior"></div></div>
+        <div class="card"><div class="card-title" style="margin-bottom:15px;"><span class="icon red">📝</span> Sin Writing</div><div id="reportNoWriting"></div></div>
         <div class="card">
             <div class="card-header"><div class="card-title"><span class="icon blue">📄</span> Acciones</div></div>
             <div class="inline-flex" style="flex-wrap:wrap;gap:10px;">
-                <button class="btn btn-primary" onclick="generateFullReport()">📄 PDF Completo Semanal</button>
-                <button class="btn btn-danger" onclick="sendBulkEmails()">📧 Emails Incidencias</button>
+                <button class="btn btn-primary" onclick="generateFullReport()">📄 PDF Completo</button>
+                <button class="btn btn-danger" onclick="sendBulkEmails()">📧 Emails Padres</button>
+                <button class="btn btn-warning" onclick="openDirectorEmailModal()">👔 Email Director</button>
             </div>
         </div>
     </div>
 </div>
 
 <!-- MODALES -->
-<div class="modal-overlay" id="addStudentModal">
-    <div class="modal">
-        <h2>➕ Añadir Alumno</h2>
-        <div class="form-group"><label>Nombre completo</label><input type="text" id="newStudentName" placeholder="Nombre"></div>
-        <div class="form-group"><label>Curso</label><input type="text" id="newStudentCourse" placeholder="Ej: 1º ESO A"></div>
-        <div class="form-group"><label>Email Padre/Madre</label><input type="email" id="newStudentEmail" placeholder="email@ejemplo.com"></div>
-        <div class="modal-actions">
-            <button class="btn btn-ghost btn-sm" onclick="closeModal('addStudentModal')">Cancelar</button>
-            <button class="btn btn-primary btn-sm" onclick="addStudentManual()">💾 Guardar</button>
-        </div>
-    </div>
-</div>
-
-<div class="modal-overlay" id="editStudentModal">
-    <div class="modal">
-        <h2>✏️ Editar Alumno</h2>
-        <input type="hidden" id="editStudentId">
-        <div class="form-group"><label>Nombre</label><input type="text" id="editStudentName"></div>
-        <div class="form-group"><label>Curso</label><input type="text" id="editStudentCourse"></div>
-        <div class="form-group"><label>Email Padre/Madre</label><input type="email" id="editStudentEmail" placeholder="email@ejemplo.com"></div>
-        <div class="modal-actions">
-            <button class="btn btn-ghost btn-sm" onclick="closeModal('editStudentModal')">Cancelar</button>
-            <button class="btn btn-primary btn-sm" onclick="saveEditStudent()">💾 Guardar</button>
-        </div>
-    </div>
-</div>
-
-<div class="modal-overlay" id="emailModal">
-    <div class="modal">
-        <h2>📧 Email al Padre/Madre</h2>
-        <div class="form-group"><label>Para:</label><input type="email" id="emailTo" readonly></div>
-        <div class="form-group"><label>Alumno:</label><input type="text" id="emailStudent" readonly></div>
-        <div class="form-group"><label>Asunto:</label><input type="text" id="emailSubject"></div>
-        <div class="form-group"><label>Mensaje:</label><textarea id="emailBody"></textarea></div>
-        <div class="modal-actions">
-            <button class="btn btn-ghost btn-sm" onclick="closeModal('emailModal')">Cancelar</button>
-            <button class="btn btn-primary btn-sm" onclick="sendEmail()">📧 Abrir Email</button>
-        </div>
-    </div>
-</div>
-
-<div class="modal-overlay" id="columnMapModal">
-    <div class="modal">
-        <h2>📊 Mapear Columnas Excel</h2>
-        <p style="margin-bottom:16px;color:var(--text-secondary);font-size:0.88rem;">Selecciona columnas:</p>
-        <div class="form-group"><label>📛 NOMBRE:</label><select id="mapNombre"></select></div>
-        <div class="form-group"><label>📚 CURSO:</label><select id="mapCurso"></select></div>
-        <div class="form-group"><label>📧 EMAIL PADRE:</label><select id="mapEmail"></select></div>
-        <div id="columnPreview" class="debug-preview"></div>
-        <div class="modal-actions">
-            <button class="btn btn-ghost btn-sm" onclick="closeModal('columnMapModal')">Cancelar</button>
-            <button class="btn btn-primary btn-sm" onclick="confirmColumnMapping()">✅ Importar</button>
-        </div>
-    </div>
-</div>
-
-<div class="toast-container" id="toastContainer"></div>
-
-<script>
-// ============================================================
-// ESTADO
-// ============================================================
-let students = JSON.parse(localStorage.getItem('students') || '[]');
-let weeklyData = JSON.parse(localStorage.getItem('weeklyData') || '{}');
-// weeklyData structure:
-// weeklyData[weekKey][category][dayKey][studentId] = {status, note, timestamp}
-// dayKey = "2025-01-15" (date string)
-let pendingExcelData = null;
-
-const CENTRO = "Centro Académico Privado de Inglés";
-const CENTRO_DIR = "Sevilla, 56 · Bailén";
-const CENTRO_FULL = "Control de Alumnado - Centro Académico Privado de Inglés Sevilla, 56 Bailén";
-
-function saveStudents() { localStorage.setItem('students', JSON.stringify(students)); }
-function saveWeeklyData() { localStorage.setItem('weeklyData', JSON.stringify(weeklyData)); }
-
-// Migrate old data format (no days) to new format
-function migrateData() {
-    let changed = false;
-    Object.keys(weeklyData).forEach(week => {
-        ['attendance','behavior','writings'].forEach(cat => {
-            if (weeklyData[week][cat]) {
-                const firstKey = Object.keys(weeklyData[week][cat])[0];
-                if (firstKey && weeklyData[week][cat][firstKey] && weeklyData[week][cat][firstKey].status) {
-                    // Old format: weeklyData[week][cat][studentId] = {status, note}
-                    // Migrate to: weeklyData[week][cat]["migrated"][studentId] = {status, note, timestamp}
-                    const oldData = weeklyData[week][cat];
-                    weeklyData[week][cat] = { "sin_fecha": oldData };
-                    changed = true;
-                }
-            }
-        });
-    });
-    if (changed) saveWeeklyData();
-}
-
-// ============================================================
-// UTILIDADES
-// ============================================================
-function getCurrentWeek() {
-    const d = new Date();
-    const y = d.getFullYear();
-    const oneJan = new Date(y,0,1);
-    const days = Math.floor((d - oneJan) / 86400000);
-    const wn = Math.ceil((days + oneJan.getDay() + 1) / 7);
-    return `${y}-W${String(wn).padStart(2,'0')}`;
-}
-
-function getTodayStr() {
-    return new Date().toISOString().slice(0,10);
-}
-
-function formatDateStr(dateStr) {
-    if (!dateStr || dateStr === 'sin_fecha') return 'Sin fecha';
-    try {
-        const parts = dateStr.split('-');
-        return `${parts[2]}/${parts[1]}/${parts[0]}`;
-    } catch(e) { return dateStr; }
-}
-
-function getDayName(dateStr) {
-    if (!dateStr || dateStr === 'sin_fecha') return 'Sin fecha';
-    try {
-        const d = new Date(dateStr + 'T12:00:00');
-        return d.toLocaleDateString('es-ES', { weekday:'long', day:'numeric', month:'short' });
-    } catch(e) { return dateStr; }
-}
-
-function weekToDateRange(w) {
-    if(!w) return '';
-    try {
-        const [y, wk] = w.split('-W');
-        const s = new Date(y, 0, 1 + (wk-1)*7);
-        s.setDate(s.getDate() - s.getDay() + 1);
-        const e = new Date(s); e.setDate(s.getDate()+6);
-        const f = d => `${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()}`;
-        return `${f(s)} - ${f(e)}`;
-    } catch(e) { return w; }
-}
-
-function showToast(msg,type='info') {
-    const c=document.getElementById('toastContainer');
-    const t=document.createElement('div'); t.className=`toast ${type}`; t.innerHTML=msg;
-    c.appendChild(t);
-    setTimeout(()=>{ t.style.opacity='0'; t.style.transform='translateX(100%)'; setTimeout(()=>t.remove(),300); },3500);
-}
-
-function getCourses() { return [...new Set(students.map(s=>s.course||'Sin curso'))].sort(); }
-
-function updateCourseFilters() {
-    const ids=['studentsCourseFilter','attendanceCourseFilter','behaviorCourseFilter','writingsCourseFilter','reportsCourseFilter'];
-    const courses=getCourses();
-    ids.forEach(id=>{ const el=document.getElementById(id); if(!el) return; const cur=el.value;
-        el.innerHTML='<option value="">Todos los cursos</option>';
-        courses.forEach(c=>{ el.innerHTML+=`<option value="${c}" ${c===cur?'selected':''}>${c}</option>`; });
-    });
-}
-
-function generateId() { return Date.now().toString(36)+Math.random().toString(36).substr(2); }
-
-// ============================================================
-// TABS
-// ============================================================
-function switchTab(name,btn) {
-    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-    document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById(`tab-${name}`).classList.add('active');
-    if(['attendance','behavior','writings'].includes(name)) {
-        const w=document.getElementById(`${name}Week`);
-        const d=document.getElementById(`${name}Day`);
-        if(!w.value) w.value=getCurrentWeek();
-        if(!d.value) d.value=getTodayStr();
-        loadWeekData(name); loadWeekHistory(name);
-    }
-    if(name==='reports') { const w=document.getElementById('reportsWeek'); if(!w.value) w.value=getCurrentWeek(); loadReports(); }
-    if(name==='students') renderStudentsList();
-}
-
-// ============================================================
-// EXCEL
-// ============================================================
-const uz=document.getElementById('uploadZone');
-uz.addEventListener('dragover',e=>{e.preventDefault();uz.classList.add('dragover');});
-uz.addEventListener('dragleave',()=>uz.classList.remove('dragover'));
-uz.addEventListener('drop',e=>{e.preventDefault();uz.classList.remove('dragover');if(e.dataTransfer.files[0])processExcel(e.dataTransfer.files[0]);});
-
-function handleExcelUpload(e){if(e.target.files[0])processExcel(e.target.files[0]);e.target.value='';}
-
-function normalizeKey(k){return k.toString().toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]/g,'');}
-function autoDetect(cols,patterns){for(const c of cols){const n=normalizeKey(c);for(const p of patterns){if(n.includes(p))return c;}}return '';}
-
-function processExcel(file){
-    const reader=new FileReader();
-    reader.onload=function(e){
-        try{
-            const data=new Uint8Array(e.target.result);
-            const wb=XLSX.read(data,{type:'array'});
-            const json=XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]],{defval:''});
-            if(!json.length){showToast('❌ Vacío','error');return;}
-            const cols=Object.keys(json[0]);
-            pendingExcelData=json;
-            const an=autoDetect(cols,['nombre','name','alumno']);
-            const ac=autoDetect(cols,['curso','course','clase','grupo']);
-            const ae=autoDetect(cols,['email','correo','mail','padre','madre']);
-            ['mapNombre','mapCurso','mapEmail'].forEach((id,i)=>{
-                const sel=document.getElementById(id);const auto=[an,ac,ae][i];
-                sel.innerHTML='<option value="">-- No asignar --</option>';
-                cols.forEach(c=>{sel.innerHTML+=`<option value="${c}" ${c===auto?'selected':''}>${c}</option>`;});
-            });
-            let prev=`<h4>Vista previa (${json.length} filas):</h4><p>${cols.map(c=>`<code>${c}</code>`).join(' ')}</p><br>`;
-            json.slice(0,3).forEach((r,i)=>{prev+=`<p><strong>Fila ${i+1}:</strong> ${cols.map(c=>`${c}=<code>${r[c]}</code>`).join(' | ')}</p>`;});
-            document.getElementById('columnPreview').innerHTML=prev;
-            document.getElementById('columnMapModal').classList.add('active');
-        }catch(err){showToast('❌ Error Excel','error');console.error(err);}
-    };
-    reader.readAsArrayBuffer(file);
-}
-
-function confirmColumnMapping(){
-    const cn=document.getElementById('mapNombre').value;
-    const cc=document.getElementById('mapCurso').value;
-    const ce=document.getElementById('mapEmail').value;
-    if(!cn){showToast('⚠️ Selecciona Nombre','error');return;}
-    if(!pendingExcelData) return;
-    let count=0,skip=0;
-    pendingExcelData.forEach(row=>{
-        const name=(row[cn]||'').toString().trim();
-        const course=cc?(row[cc]||'').toString().trim():'';
-        const email=ce?(row[ce]||'').toString().trim():'';
-        if(name){
-            const exists=students.find(s=>s.name.toLowerCase()===name.toLowerCase()&&s.course.toLowerCase()===course.toLowerCase());
-            if(!exists){students.push({id:generateId(),name,course,email});count++;}
-            else{if(!exists.email&&email)exists.email=email;skip++;}
-        }
-    });
-    pendingExcelData=null;
-    saveStudents();updateCourseFilters();renderStudentsList();closeModal('columnMapModal');
-    showToast(`✅ ${count} importados${skip?` (${skip} existentes)`:''}`,'success');
-}
-
-// ============================================================
-// ALUMNOS
-// ============================================================
-function renderStudentsList(){
-    const container=document.getElementById('studentsList');
-    const cf=document.getElementById('studentsCourseFilter').value;
-    const search=(document.getElementById('studentsSearch').value||'').toLowerCase();
-    let filtered=students.filter(s=>{
-        if(cf&&(s.course||'Sin curso')!==cf) return false;
-        if(search&&!s.name.toLowerCase().includes(search)) return false;
-        return true;
-    });
-    if(!students.length){container.innerHTML=`<div class="empty-state"><div class="icon">👥</div><h3>Sin alumnos</h3><p>Importa Excel o añade manualmente</p></div>`;return;}
-    if(!filtered.length){container.innerHTML=`<div class="empty-state"><div class="icon">🔍</div><h3>Sin resultados</h3></div>`;return;}
-    const grouped={};
-    filtered.forEach(s=>{const c=s.course||'Sin curso';if(!grouped[c])grouped[c]=[];grouped[c].push(s);});
-    const withE=filtered.filter(s=>s.email).length;
-    let html=`<div class="stats-grid">
-        <div class="stat-card blue"><div class="stat-number">${filtered.length}</div><div class="stat-label">Total</div></div>
-        <div class="stat-card green"><div class="stat-number">${Object.keys(grouped).length}</div><div class="stat-label">Cursos</div></div>
-        <div class="stat-card blue"><div class="stat-number">${withE}</div><div class="stat-label">Con Email</div></div>
-        <div class="stat-card red"><div class="stat-number">${filtered.length-withE}</div><div class="stat-label">Sin Email</div></div>
-    </div>`;
-    Object.keys(grouped).sort().forEach(course=>{
-        const list=grouped[course].sort((a,b)=>a.name.localeCompare(b.name));
-        html+=`<div style="margin-bottom:20px;"><h3 style="margin-bottom:10px;color:var(--primary);">📚 ${course} <span class="student-course">${list.length}</span></h3>
-        <div class="table-container"><table><thead><tr><th>#</th><th>Nombre</th><th>Email Padre</th><th>Acciones</th></tr></thead><tbody>`;
-        list.forEach((s,i)=>{
-            const em=s.email?`<span class="email-text email-ok">✅ ${s.email}</span>`:`<span class="email-text email-missing">❌ Sin email</span>`;
-            html+=`<tr><td>${i+1}</td><td><span class="student-name">${s.name}</span></td><td>${em}</td>
-            <td><div class="inline-flex">
-                <button class="email-btn ${!s.email?'disabled':''}" onclick="openEmailModal('${s.id}')">📧</button>
-                <button class="edit-email-btn" onclick="openEditStudent('${s.id}')">✏️</button>
-                <button class="edit-email-btn" onclick="deleteStudent('${s.id}')" style="color:var(--red);border-color:var(--red-light);">🗑️</button>
-            </div></td></tr>`;
-        });
-        html+='</tbody></table></div></div>';
-    });
-    container.innerHTML=html;
-}
-
-function showAddStudentModal(){
-    ['newStudentName','newStudentCourse','newStudentEmail'].forEach(id=>document.getElementById(id).value='');
-    document.getElementById('addStudentModal').classList.add('active');
-}
-
-function addStudentManual(){
-    const name=document.getElementById('newStudentName').value.trim();
-    const course=document.getElementById('newStudentCourse').value.trim();
-    const email=document.getElementById('newStudentEmail').value.trim();
-    if(!name){showToast('❌ Nombre obligatorio','error');return;}
-    students.push({id:generateId(),name,course,email});
-    saveStudents();updateCourseFilters();renderStudentsList();closeModal('addStudentModal');
-    showToast('✅ Alumno añadido','success');
-}
-
-function openEditStudent(id){
-    const s=students.find(st=>st.id===id); if(!s) return;
-    document.getElementById('editStudentId').value=id;
-    document.getElementById('editStudentName').value=s.name;
-    document.getElementById('editStudentCourse').value=s.course;
-    document.getElementById('editStudentEmail').value=s.email||'';
-    document.getElementById('editStudentModal').classList.add('active');
-}
-
-function saveEditStudent(){
-    const id=document.getElementById('editStudentId').value;
-    const s=students.find(st=>st.id===id); if(!s) return;
-    const n=document.getElementById('editStudentName').value.trim();
-    if(!n){showToast('❌ Nombre obligatorio','error');return;}
-    s.name=n;
-    s.course=document.getElementById('editStudentCourse').value.trim();
-    s.email=document.getElementById('editStudentEmail').value.trim();
-    saveStudents();updateCourseFilters();renderStudentsList();closeModal('editStudentModal');
-    showToast('✅ Actualizado','success');
-}
-
-function deleteStudent(id){
-    const s=students.find(st=>st.id===id);
-    if(s&&confirm(`¿Eliminar "${s.name}"?`)){
-        students=students.filter(st=>st.id!==id);saveStudents();renderStudentsList();showToast('🗑️ Eliminado','info');
-    }
-}
-
-// ============================================================
-// DATOS SEMANALES CON DÍA
-// ============================================================
-function getWeekKey(cat){return document.getElementById(`${cat}Week`).value;}
-function getDayKey(cat){return document.getElementById(`${cat}Day`).value || getTodayStr();}
-
-function ensureWeekData(w,c,d){
-    if(!weeklyData[w])weeklyData[w]={};
-    if(!weeklyData[w][c])weeklyData[w][c]={};
-    if(!weeklyData[w][c][d])weeklyData[w][c][d]={};
-}
-
-function getDefaultStatus(c){return c==='attendance'?'present':c==='behavior'?'good':'delivered';}
-
-function getStudentDayStatus(w,c,d,id){
-    if(!weeklyData[w]||!weeklyData[w][c]||!weeklyData[w][c][d]||!weeklyData[w][c][d][id])
-        return {status:getDefaultStatus(c),note:'',timestamp:''};
-    return weeklyData[w][c][d][id];
-}
-
-function setStudentDayStatus(w,c,d,id,status,note){
-    ensureWeekData(w,c,d);
-    weeklyData[w][c][d][id]={status,note:note||'',timestamp:new Date().toISOString()};
-    saveWeeklyData();
-}
-
-// Get all days in a week that have data for a category
-function getWeekDays(w,c){
-    if(!weeklyData[w]||!weeklyData[w][c]) return [];
-    return Object.keys(weeklyData[w][c]).sort();
-}
-
-// Get summary for a student across all days in a week
-function getStudentWeekSummary(w,c,id){
-    const days=getWeekDays(w,c);
-    const summary=[];
-    days.forEach(d=>{
-        const data=getStudentDayStatus(w,c,d,id);
-        if(data.status!==getDefaultStatus(c)){
-            summary.push({day:d, status:data.status, note:data.note});
-        }
-    });
-    return summary;
-}
-
-function loadWeekData(cat){
-    const week=getWeekKey(cat);
-    const day=getDayKey(cat);
-    if(!week) return;
-    const cf=document.getElementById(`${cat}CourseFilter`).value;
-    const search=document.getElementById(`${cat}Search`).value.toLowerCase();
-    let filtered=students.filter(s=>{
-        if(cf&&s.course!==cf) return false;
-        if(search&&!s.name.toLowerCase().includes(search)) return false;
-        return true;
-    });
-    filtered.sort((a,b)=>a.course.localeCompare(b.course)||a.name.localeCompare(b.name));
-    renderCategoryTable(cat,week,day,filtered);
-    renderCategoryStats(cat,week,day,filtered);
-    loadWeekHistory(cat);
-}
-
-function getStatusOptions(cat){
-    if(cat==='attendance') return [{value:'present',class:'present',label:'✅ Presente'},{value:'absent',class:'absent',label:'❌ Ausente'},{value:'justified',class:'justified',label:'📋 Justificada'}];
-    if(cat==='behavior') return [{value:'good',class:'good',label:'✅ Bien'},{value:'regular',class:'regular',label:'⚠️ Regular'},{value:'bad',class:'bad',label:'❌ Mal'}];
-    return [{value:'delivered',class:'delivered',label:'✅ Entregado'},{value:'late',class:'late',label:'⏰ Tarde'},{value:'not-delivered',class:'not-delivered',label:'❌ No entregado'}];
-}
-
-function renderCategoryTable(cat,week,day,list){
-    const container=document.getElementById(`${cat}Table`);
-    if(!list.length){container.innerHTML=`<div class="empty-state"><div class="icon">📭</div><h3>Sin alumnos</h3></div>`;return;}
-    const opts=getStatusOptions(cat);
-    const weekDays=getWeekDays(week,cat);
-
-    let html=`<table><thead><tr><th>#</th><th>Alumno</th><th>Curso</th><th>Estado (${getDayName(day)})</th><th>Observaciones</th><th>Resumen Semana</th><th>Email</th></tr></thead><tbody>`;
-    list.forEach((s,i)=>{
-        const d=getStudentDayStatus(week,cat,day,s.id);
-        const summary=getStudentWeekSummary(week,cat,s.id);
-
-        html+=`<tr><td>${i+1}</td><td><span class="student-name">${s.name}</span></td><td><span class="student-course">${s.course}</span></td><td><div class="inline-flex">`;
-        opts.forEach(o=>{
-            html+=`<button class="status-btn ${d.status===o.value?o.class:''}" style="${d.status!==o.value?'opacity:0.35':''}"
-                onclick="toggleStatus('${cat}','${week}','${day}','${s.id}','${o.value}')">${o.label}</button>`;
-        });
-        html+=`</div></td><td><input class="note-input" type="text" value="${(d.note||'').replace(/"/g,'&quot;')}"
-            placeholder="Nota..." onchange="updateNote('${cat}','${week}','${day}','${s.id}',this.value)"></td>`;
-
-        // Week summary column
-        html+=`<td>`;
-        if(summary.length>0){
-            summary.forEach(item=>{
-                const cls=item.status==='absent'||item.status==='bad'||item.status==='not-delivered'?'absent-day':
-                    item.status==='justified'||item.status==='regular'||item.status==='late'?'justified-day':'present-day';
-                html+=`<span class="day-tag ${cls}" title="${item.note||''}">${getDayName(item.day)}</span> `;
-            });
-        } else {
-            html+=`<span style="color:var(--text-muted);font-size:0.75rem;">Sin incidencias</span>`;
-        }
-        html+=`</td><td><div class="inline-flex">
-            <button class="email-btn ${!s.email?'disabled':''}" onclick="openEmailModal('${s.id}')">📧</button>
-            <button class="edit-email-btn" onclick="openEditStudent('${s.id}')">✏️</button>
-        </div></td></tr>`;
-    });
-    container.innerHTML=html+'</tbody></table>';
-}
-
-function toggleStatus(cat,w,d,id,st){const c=getStudentDayStatus(w,cat,d,id);setStudentDayStatus(w,cat,d,id,st,c.note);loadWeekData(cat);}
-function updateNote(cat,w,d,id,n){const c=getStudentDayStatus(w,cat,d,id);setStudentDayStatus(w,cat,d,id,c.status,n);}
-
-function setAllStatus(cat,st){
-    const w=getWeekKey(cat),d=getDayKey(cat);if(!w) return;
-    const cf=document.getElementById(`${cat}CourseFilter`).value;
-    students.forEach(s=>{if(cf&&s.course!==cf) return;const c=getStudentDayStatus(w,cat,d,s.id);setStudentDayStatus(w,cat,d,s.id,st,c.note);});
-    loadWeekData(cat);showToast('✅ Actualizado','success');
-}
-
-function renderCategoryStats(cat,w,d,list){
-    const c=document.getElementById(`${cat}Stats`);
-    const opts=getStatusOptions(cat);
-    const counts={};opts.forEach(o=>counts[o.value]=0);
-    list.forEach(s=>{const data=getStudentDayStatus(w,cat,d,s.id);if(counts[data.status]!==undefined)counts[data.status]++;});
-    const colors={0:'green',1:'red',2:'yellow'};
-    let html=`<div class="stat-card blue"><div class="stat-number">${list.length}</div><div class="stat-label">Total</div></div>`;
-    opts.forEach((o,i)=>{html+=`<div class="stat-card ${colors[i]}"><div class="stat-number">${counts[o.value]}</div><div class="stat-label">${o.label}</div></div>`;});
-    c.innerHTML=html;
-}
-
-function loadWeekHistory(cat){
-    const c=document.getElementById(`${cat}WeekHistory`);
-    const cur=getWeekKey(cat);
-    const weeks=Object.keys(weeklyData).filter(w=>weeklyData[w][cat]).sort().reverse();
-    if(!weeks.length){c.innerHTML='<p style="color:var(--text-muted);font-size:0.85rem;">Sin semanas</p>';return;}
-    c.innerHTML=weeks.map(w=>{
-        const days=getWeekDays(w,cat);
-        return `<button class="week-chip ${w===cur?'active':''}" onclick="jumpToWeek('${cat}','${w}')">
-            📅 ${w} (${days.length} días)</button>`;
-    }).join('');
-}
-
-function jumpToWeek(cat,w){document.getElementById(`${cat}Week`).value=w;loadWeekData(cat);}
-
-// ============================================================
-// EMAIL
-// ============================================================
-function openEmailModal(id){
-    const s=students.find(st=>st.id===id);if(!s) return;
-    if(!s.email){showToast('⚠️ Sin email. Usa ✏️ para añadirlo','error');return;}
-    document.getElementById('emailTo').value=s.email;
-    document.getElementById('emailStudent').value=`${s.name} (${s.course})`;
-    document.getElementById('emailSubject').value=`Incidencia - ${s.name} - ${CENTRO}`;
-    document.getElementById('emailBody').value=`Estimado/a padre/madre de ${s.name},\n\nDesde ${CENTRO} (${CENTRO_DIR}) le comunicamos:\n\n\n\nUn cordial saludo.\n${CENTRO}`;
-    document.getElementById('emailModal').classList.add('active');
-}
-
-function sendEmail(){
-    const to=document.getElementById('emailTo').value;
-    const s=encodeURIComponent(document.getElementById('emailSubject').value);
-    const b=encodeURIComponent(document.getElementById('emailBody').value);
-    window.open(`mailto:${to}?subject=${s}&body=${b}`,'_blank');
-    closeModal('emailModal');showToast('📧 Abriendo correo...','info');
-}
-
-function closeModal(id){document.getElementById(id).classList.remove('active');}
-document.querySelectorAll('.modal-overlay').forEach(m=>{m.addEventListener('click',function(e){if(e.target===this)this.classList.remove('active');});});
-
-// ============================================================
-// INFORMES
-// ============================================================
-function loadReports(){
-    const w=document.getElementById('reportsWeek').value;
-    const cf=document.getElementById('reportsCourseFilter').value;
-    if(!w) return;
-    let filtered=cf?students.filter(s=>s.course===cf):[...students];
-
-    let absent=0,bad=0,noW=0;
-    const absList=[],badList=[],noWList=[];
-
-    filtered.forEach(s=>{
-        const attSummary=getStudentWeekSummary(w,'attendance',s.id);
-        const behSummary=getStudentWeekSummary(w,'behavior',s.id);
-        const wriSummary=getStudentWeekSummary(w,'writings',s.id);
-
-        const absDays=attSummary.filter(d=>d.status==='absent');
-        const badDays=behSummary.filter(d=>d.status==='bad'||d.status==='regular');
-        const noWDays=wriSummary.filter(d=>d.status==='not-delivered'||d.status==='late');
-
-        if(absDays.length>0){absent++;absList.push({...s,days:absDays});}
-        if(badDays.length>0){bad++;badList.push({...s,days:badDays});}
-        if(noWDays.length>0){noW++;noWList.push({...s,days:noWDays});}
-    });
-
-    document.getElementById('reportStatsGrid').innerHTML=`
-        <div class="stat-card blue"><div class="stat-number">${filtered.length}</div><div class="stat-label">Total</div></div>
-        <div class="stat-card red"><div class="stat-number">${absent}</div><div class="stat-label">Ausentes</div></div>
-        <div class="stat-card yellow"><div class="stat-number">${bad}</div><div class="stat-label">Mal Trabajo</div></div>
-        <div class="stat-card red"><div class="stat-number">${noW}</div><div class="stat-label">Sin Writing</div></div>`;
-
-    document.getElementById('reportAbsent').innerHTML=renderReportListWithDays(absList);
-    document.getElementById('reportBadBehavior').innerHTML=renderReportListWithDays(badList);
-    document.getElementById('reportNoWriting').innerHTML=renderReportListWithDays(noWList);
-}
-
-function renderReportListWithDays(list){
-    if(!list.length) return '<p style="color:#059669;font-weight:600;">✅ Sin incidencias</p>';
-    let html='<ul class="summary-list">';
-    list.forEach(s=>{
-        const dayTags=s.days.map(d=>{
-            const statusLabels={absent:'Ausente',bad:'Mal',regular:'Regular','not-delivered':'No entregado',late:'Tarde'};
-            return `<span class="day-tag absent-day">${getDayName(d.day)} - ${statusLabels[d.status]||d.status}</span>`;
-        }).join(' ');
-        html+=`<li><div><strong>${s.name}</strong> <span class="student-course">${s.course}</span><br><div style="margin-top:4px;">${dayTags}</div></div>
-        <div class="inline-flex"><button class="email-btn ${!s.email?'disabled':''}" onclick="openEmailModal('${s.id}')">📧</button>
-        <button class="edit-email-btn" onclick="openEditStudent('${s.id}')">✏️</button></div></li>`;
-    });
-    return html+'</ul>';
-}
-
-// ============================================================
-// PDF
-// ============================================================
-const PDF_BLUE=[30,58,95];const PDF_BLUE_L=[44,82,130];const PDF_RED=[220,38,38];
-const PDF_W_SOFT=[248,250,252];const PDF_ACC=[59,130,246];
-
-const statusLabels={present:'Presente',absent:'Ausente',justified:'Justificada',good:'Bien',regular:'Regular',bad:'Mal',delivered:'Entregado',late:'Tarde','not-delivered':'No entregado'};
-
-function addPdfHeader(doc,title,week,cf){
-    doc.setFillColor(...PDF_BLUE);doc.rect(0,0,210,38,'F');
-    doc.setFillColor(...PDF_RED);doc.rect(0,38,210,3,'F');
-    doc.setTextColor(255,255,255);doc.setFontSize(14);doc.setFont(undefined,'bold');
-    doc.text(CENTRO,14,16);
-    doc.setFontSize(9);doc.setFont(undefined,'normal');doc.text(CENTRO_DIR,14,23);
-    doc.setFontSize(10);doc.setFont(undefined,'bold');doc.text(title,14,32);
-    doc.setFontSize(8);doc.setFont(undefined,'normal');
-    doc.text(`Semana: ${week}`,196,16,{align:'right'});
-    doc.text(weekToDateRange(week),196,22,{align:'right'});
-    let y=28;
-    if(cf){doc.text(`Curso: ${cf}`,196,y,{align:'right'});y+=6;}
-    doc.text(`Generado: ${new Date().toLocaleDateString('es-ES')}`,196,y,{align:'right'});
-    doc.setTextColor(0,0,0);
-    return 48;
-}
-
-function addPdfFooter(doc){
-    const pages=doc.internal.getNumberOfPages();
-    for(let i=1;i<=pages;i++){
-        doc.setPage(i);const h=doc.internal.pageSize.height;
-        doc.setFillColor(...PDF_BLUE);doc.rect(0,h-14,210,14,'F');
-        doc.setFillColor(...PDF_RED);doc.rect(0,h-14,210,2,'F');
-        doc.setTextColor(255,255,255);doc.setFontSize(7);
-        doc.text(CENTRO_FULL,14,h-5);
-        doc.text(`Página ${i}/${pages}`,196,h-5,{align:'right'});
-        doc.setTextColor(0,0,0);
-    }
-}
-
-function generatePDF(cat){
-    const week=getWeekKey(cat);if(!week){showToast('⚠️ Selecciona semana','error');return;}
-    const {jsPDF}=window.jspdf;const doc=new jsPDF();
-    const cf=document.getElementById(`${cat}CourseFilter`).value;
-    let filtered=cf?students.filter(s=>s.course===cf):[...students];
-    filtered.sort((a,b)=>a.course.localeCompare(b.course)||a.name.localeCompare(b.name));
-
-    const titles={attendance:'INFORME DE ASISTENCIA',behavior:'INFORME DE TRABAJO EN CLASE',writings:'INFORME DE ENTREGAS DE WRITINGS'};
-    const negStatuses={attendance:['absent'],behavior:['bad','regular'],writings:['not-delivered','late']};
-
-    // Gather incidences with days
-    const incidences=[];
-    filtered.forEach(s=>{
-        const summary=getStudentWeekSummary(week,cat,s.id);
-        const negDays=summary.filter(d=>negStatuses[cat].includes(d.status));
-        if(negDays.length>0){
-            incidences.push({student:s, days:negDays});
-        }
-    });
-
-    const startY=addPdfHeader(doc,titles[cat],week,cf);
-    doc.setFontSize(10);doc.setFont(undefined,'bold');doc.setTextColor(...PDF_BLUE);
-    doc.text(`Total: ${filtered.length}  |  Con incidencias: ${incidences.length}`,14,startY);
-    doc.setTextColor(0,0,0);
-
-    if(incidences.length>0){
-        const tableData=incidences.map((inc,i)=>{
-            const daysStr=inc.days.map(d=>`${getDayName(d.day)} (${statusLabels[d.status]||d.status})`).join(', ');
-            const notesStr=inc.days.filter(d=>d.note).map(d=>`${formatDateStr(d.day)}: ${d.note}`).join('; ');
-            return [i+1, inc.student.name, inc.student.course, daysStr, notesStr||''];
-        });
-        doc.autoTable({
-            startY:startY+6,
-            head:[['#','Alumno','Curso','Días con incidencia','Observaciones']],
-            body:tableData, theme:'grid',
-            headStyles:{fillColor:PDF_BLUE,textColor:[255,255,255],fontStyle:'bold',fontSize:8},
-            alternateRowStyles:{fillColor:PDF_W_SOFT},
-            styles:{fontSize:7.5,cellPadding:5,lineColor:[200,200,200],lineWidth:0.3},
-            columnStyles:{0:{cellWidth:10,halign:'center'},3:{cellWidth:60}},
-            didParseCell:function(data){
-                if(data.section==='body'&&data.column.index===3){
-                    if(data.cell.raw.includes('Ausente')||data.cell.raw.includes('Mal')||data.cell.raw.includes('No entregado'))
-                        data.cell.styles.textColor=PDF_RED;
-                    else if(data.cell.raw.includes('Regular')||data.cell.raw.includes('Tarde')||data.cell.raw.includes('Justificada'))
-                        data.cell.styles.textColor=[217,119,6];
-                }
-            },
-            margin:{left:14,right:14}
-        });
-    } else {
-        doc.setFontSize(11);doc.setTextColor(5,150,105);
-        doc.text('✓ No hay incidencias esta semana',14,startY+10);
-        doc.setTextColor(0,0,0);
-    }
-
-    addPdfFooter(doc);
-    doc.save(`${titles[cat].replace(/\s/g,'_')}_${week}.pdf`);
-    showToast('📄 PDF generado','success');
-}
-
-function generateFullReport(){
-    const week=document.getElementById('reportsWeek').value;
-    if(!week){showToast('⚠️ Selecciona semana','error');return;}
-    const cf=document.getElementById('reportsCourseFilter').value;
-    const {jsPDF}=window.jspdf;const doc=new jsPDF();
-    let filtered=cf?students.filter(s=>s.course===cf):[...students];
-    filtered.sort((a,b)=>a.course.localeCompare(b.course)||a.name.localeCompare(b.name));
-
-    // PORTADA
-    doc.setFillColor(...PDF_BLUE);doc.rect(0,0,210,297,'F');
-    doc.setFillColor(...PDF_RED);doc.rect(0,100,210,6,'F');doc.rect(0,190,210,6,'F');
-    doc.setTextColor(255,255,255);
-    doc.setFontSize(28);doc.setFont(undefined,'bold');doc.text('INFORME SEMANAL',105,130,{align:'center'});
-    doc.setFontSize(14);doc.text('COMPLETO',105,142,{align:'center'});
-    doc.setFontSize(12);doc.setFont(undefined,'normal');
-    doc.text(CENTRO,105,160,{align:'center'});
-    doc.setFontSize(10);doc.text(CENTRO_DIR,105,168,{align:'center'});
-    doc.setFontSize(11);
-    doc.text(`Semana: ${week}`,105,210,{align:'center'});
-    doc.text(weekToDateRange(week),105,218,{align:'center'});
-    if(cf) doc.text(`Curso: ${cf}`,105,226,{align:'center'});
-    doc.text(`Total alumnos: ${filtered.length}`,105,cf?234:226,{align:'center'});
-    doc.text(`Fecha: ${new Date().toLocaleDateString('es-ES')}`,105,cf?242:234,{align:'center'});
-
-    const cats=[
-        {key:'attendance',title:'ASISTENCIA',neg:['absent']},
-        {key:'behavior',title:'TRABAJO EN CLASE',neg:['bad','regular']},
-        {key:'writings',title:'ENTREGAS DE WRITINGS',neg:['not-delivered','late']}
-    ];
-
-    cats.forEach(cat=>{
-        doc.addPage();
-        const startY=addPdfHeader(doc,`INFORME DE ${cat.title}`,week,cf);
-
-        const incidences=[];
-        filtered.forEach(s=>{
-            const summary=getStudentWeekSummary(week,cat.key,s.id);
-            const negDays=summary.filter(d=>cat.neg.includes(d.status));
-            if(negDays.length>0) incidences.push({student:s, days:negDays});
-        });
-
-        doc.setFontSize(10);doc.setFont(undefined,'bold');doc.setTextColor(...PDF_BLUE);
-        doc.text(`Incidencias: ${incidences.length} de ${filtered.length}`,14,startY);
-        doc.setTextColor(0,0,0);
-
-        if(incidences.length>0){
-            doc.autoTable({
-                startY:startY+6,
-                head:[['#','Alumno','Curso','Días con incidencia','Observaciones','Email Padre']],
-                body:incidences.map((inc,i)=>{
-                    const daysStr=inc.days.map(d=>`${getDayName(d.day)} (${statusLabels[d.status]||d.status})`).join(', ');
-                    const notesStr=inc.days.filter(d=>d.note).map(d=>`${formatDateStr(d.day)}: ${d.note}`).join('; ');
-                    return [i+1,inc.student.name,inc.student.course,daysStr,notesStr||'',inc.student.email||'Sin email'];
-                }),
-                theme:'grid',
-                headStyles:{fillColor:PDF_BLUE,textColor:[255,255,255],fontStyle:'bold',fontSize:7},
-                alternateRowStyles:{fillColor:PDF_W_SOFT},
-                styles:{fontSize:7,cellPadding:4,lineColor:[200,200,200],lineWidth:0.3},
-                columnStyles:{0:{cellWidth:8,halign:'center'},3:{cellWidth:50}},
-                didParseCell:function(data){
-                    if(data.section==='body'&&data.column.index===3){
-                        if(data.cell.raw.includes('Ausente')||data.cell.raw.includes('Mal')||data.cell.raw.includes('No entregado'))
-                            data.cell.styles.textColor=PDF_RED;
-                        else if(data.cell.raw.includes('Regular')||data.cell.raw.includes('Tarde'))
-                            data.cell.styles.textColor=[217,119,6];
-                    }
-                    if(data.section==='body'&&data.column.index===5&&data.cell.raw==='Sin email'){
-                        data.cell.styles.textColor=[180,180,180];data.cell.styles.fontStyle='italic';
-                    }
-                },
-                margin:{left:14,right:14}
-            });
-        } else {
-            doc.setFontSize(11);doc.setTextColor(5,150,105);
-            doc.text('✓ Sin incidencias',14,startY+10);
-            doc.setTextColor(0,0,0);
-        }
-    });
-
-    addPdfFooter(doc);
-    doc.save(`Informe_Completo_${week}.pdf`);
-    showToast('📄 Informe completo generado','success');
-}
-
-// ============================================================
-// EMAILS MASIVOS
-// ============================================================
-function sendBulkEmails(){
-    const week=document.getElementById('reportsWeek').value;
-    if(!week){showToast('⚠️ Selecciona semana','error');return;}
-    const cf=document.getElementById('reportsCourseFilter').value;
-    let filtered=cf?students.filter(s=>s.course===cf):[...students];
-    const emailList=[];
-    filtered.forEach(s=>{
-        const issues=[];
-        const att=getStudentWeekSummary(week,'attendance',s.id).filter(d=>d.status==='absent');
-        const beh=getStudentWeekSummary(week,'behavior',s.id).filter(d=>d.status==='bad'||d.status==='regular');
-        const wri=getStudentWeekSummary(week,'writings',s.id).filter(d=>d.status==='not-delivered'||d.status==='late');
-
-        if(att.length) issues.push(`Falta de asistencia: ${att.map(d=>getDayName(d.day)).join(', ')}`);
-        if(beh.length) issues.push(`Problemas de trabajo: ${beh.map(d=>getDayName(d.day)+' ('+statusLabels[d.status]+')').join(', ')}`);
-        if(wri.length) issues.push(`Writing: ${wri.map(d=>getDayName(d.day)+' ('+statusLabels[d.status]+')').join(', ')}`);
-
-        if(issues.length>0&&s.email) emailList.push({email:s.email,name:s.name,issues});
-    });
-    if(!emailList.length){showToast('✅ Sin incidencias','success');return;}
-    if(confirm(`Se abrirán ${emailList.length} emails:\n\n${emailList.map(e=>`• ${e.name}`).join('\n')}\n\n¿Continuar?`)){
-        emailList.forEach((e,i)=>{
-            setTimeout(()=>{
-                const subj=encodeURIComponent(`Incidencias - ${e.name} - ${CENTRO}`);
-                const body=encodeURIComponent(`Estimado/a padre/madre de ${e.name},\n\nDesde ${CENTRO} (${CENTRO_DIR}) le informamos (semana ${weekToDateRange(week)}):\n\n${e.issues.map(i=>'• '+i).join('\n')}\n\nQuedamos a su disposición.\n\n${CENTRO}\n${CENTRO_DIR}`);
-                window.open(`mailto:${e.email}?subject=${subj}&body=${body}`,'_blank');
-            },i*500);
-        });
-        showToast(`📧 Abriendo ${emailList.length} emails...`,'info');
-    }
-}
-
-// ============================================================
-// BACKUP
-// ============================================================
-function exportAllData(){
-    const data={students,weeklyData,exportDate:new Date().toISOString(),centro:CENTRO_FULL,version:'3.0'};
-    const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
-    const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;
-    a.download=`backup_${new Date().toISOString().slice(0,10)}.json`;a.click();URL.revokeObjectURL(url);
-    showToast('💾 Exportado','success');
-}
-
-function importAllData(){document.getElementById('importDataInput').click();}
-
-function handleImportData(e){
-    const file=e.target.files[0];if(!file)return;
-    const reader=new FileReader();
-    reader.onload=function(ev){
-        try{
-            const data=JSON.parse(ev.target.result);
-            if(data.students&&Array.isArray(data.students)){
-                if(confirm(`Importar ${data.students.length} alumnos. ¿Reemplazar?`)){
-                    students=data.students;weeklyData=data.weeklyData||{};
-                    saveStudents();saveWeeklyData();updateCourseFilters();renderStudentsList();
-                    showToast('📂 Importado','success');
-                }
-            } else showToast('❌ No válido','error');
-        }catch(err){showToast('❌ Error','error');}
-    };
-    reader.readAsText(file);e.target.value='';
-}
-
-function confirmClearAll(){
-    if(confirm('⚠️ ¿BORRAR TODO?')&&confirm('🔴 ÚLTIMA CONFIRMACIÓN')){
-        students=[];weeklyData={};saveStudents();saveWeeklyData();updateCourseFilters();renderStudentsList();
-        showToast('🗑️ Eliminado','info');
-    }
-}
-
-// ============================================================
-// INIT
-// ============================================================
-function init(){
-    migrateData();
-    updateCourseFilters();
-    renderStudentsList();
-    const cw=getCurrentWeek(),td=getTodayStr();
-    document.querySelectorAll('input[type="week"]').forEach(i=>{if(!i.value)i.value=cw;});
-    document.querySelectorAll('input[type="date"]').forEach(i=>{if(!i.value)i.value=td;});
-}
-
-init();
-</script>
-</body>
-</html>
+<div class="modal-overlay" id="addStudentModal"><div class="modal">
+    <h2>➕ Añadir Alumno</h2>
+    <div class="form-group"><label>Nombre</label><input type="text" id="newStudentName" placeholder="Nombre"></div>
+    <div class="form-group"><label>Curso</label><input type="text" id="newStudentCourse" placeholder="Ej: 1º ESO A"></div>
+    <div class="form-group"><label>Email Padre</label><input type="email" id="newStudentEmail" placeholder="email@ejemplo.com"></div>
+    <div class="modal-actions"><button class="btn btn-ghost btn-sm" onclick="closeModal('addStudentModal')">Cancelar</button><button class="btn btn-primary btn-sm" onclick="addStudentManual()">💾 Guardar</button></div>
+</div></div>
+
+<div class="modal-overlay" id="editStudentModal"><div class="modal">
+    <h2>✏️ Editar Alumno</h2>
+    <input type="hidden" id="editStudentId">
+    <div class="form-group"><label>Nombre</label><input type="text" id="editStudentName"></div>
+    <div class="form-group"><label>Curso</label><input type="text" id="editStudentCourse"></div>
+    <div class="form-group"><label>Email Padre</label><input type="email" id="editStudentEmail"></div>
+    <div class="modal-actions"><button class="btn btn-ghost btn-sm" onclick="closeModal('editStudentModal')">Cancelar</button><button class="btn btn-primary btn-sm" onclick="saveEditStudent()">💾 Guardar</button></div>
+</div></div>
+
+<div class="modal-overlay" id="emailModal"><div class="modal">
+    <h2>📧 Email Padre/Madre</h2>
+    <div class="form-group"><label>Para:</label><input type="email" id="emailTo" readonly></div>
+    <div class="form-group"><label>Alumno:</label><input type="text" id="emailStudent" readonly></div>
+    <div class="form-group"><label>Asunto:</label><input type="text" id="emailSubject"></div>
+    <div class="form-group"><label>Mensaje:</label><textarea id="emailBody"></textarea></div>
+    <div class="modal-actions"><button class="btn btn-ghost btn-sm" onclick="closeModal('emailModal')">Cancelar</button><button class="btn btn-primary btn-sm" onclick="sendEmail()">📧 Enviar</button></div>
+</div></div>
+
+<div class="modal-overlay" id="columnMapModal"><div class="modal">
+    <h2>📊 Mapear Columnas</h2>
+    <div class="form-group"><label>📛 
